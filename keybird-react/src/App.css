@@ -78,7 +78,6 @@ div {
   height:55vh;
   width:48.25vh;
   margin:2.5vh;
-  background: white;
   border-radius: 20px;
   display:flex;
   flex-wrap: wrap;
@@ -109,10 +108,58 @@ div {
   color: #61dafb;
 }
 
-/* .chooseFileButton > button, .uploadButton  {
+input[type="file"] {
+  display: none;
+}
 
-  background:white;
-} */
+.uploadwrapperthing {
+  display: block;
+
+}
+
+.custom-file-upload, .uploadButton {
+  background: rgb(100,255,235);
+  background: linear-gradient(29deg, rgba(100,255,235,1) 0%, rgba(61,219,175,1) 100%);
+  border: 2px solid rgb(13, 161, 141);
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  
+
+}
+
+
+.StopRecordButton, .StartRecordButton {
+  all: unset;
+  border: none;
+  color: white;
+  border-radius:1000px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin:0 1em;
+
+}
+
+.StartRecordButton {
+  padding: 3vh 2.5vh 3vh 3.5vh;
+  background: rgb(56,255,56);
+  background: linear-gradient(29deg, rgba(56,255,56,1) 0%, rgba(0,255,0,1) 100%);
+    border: 2px solid rgb(3, 143, 3);
+
+}
+
+.StopRecordButton {
+  padding: 3vh;
+  background: rgb(255, 31, 31);
+  border: 2px solid rgb(100, 0, 0);
+
+}
 
 @keyframes App-logo-spin {
   from {

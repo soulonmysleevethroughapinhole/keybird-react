@@ -62,8 +62,17 @@ function RecorderJSDemo() {
 
     return (
         <div>
-            <button onClick={startRecording} type="button">Start</button>
-            <button onClick={stopRecording} type="button">Stop</button>
+            <button onClick={startRecording} className='StartRecordButton' type="button">
+                <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 386.972 386.972" xmlSpace="preserve"><path d="M25.99 0v386.972l334.991-193.486L25.99 0zm30 51.972 245.009 141.514L55.99 335V51.972z"/></svg>
+            
+            </button>
+            <button onClick={stopRecording} className='StopRecordButton' type="button">
+            <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 365" xmlSpace="preserve"><path d="M74.5 0h73v365h-73zM217.5 0h73v365h-73z"/></svg>
+            </button>
+            <h4>
+                Record Audio
+            </h4>
+
         </div>
     );
 }

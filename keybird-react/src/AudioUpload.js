@@ -110,8 +110,7 @@ class AudioUpload extends Component {
       } else {
         return (
           <div>
-            <br />
-            <h4>Upload Audio</h4>
+            <p>Upload Audio</p>
           </div>
         );
       }
@@ -121,11 +120,18 @@ class AudioUpload extends Component {
     
       return (
         <div>
-            <div>
-                <input className='chooseFileButton' type="file" onChange={this.onFileChange} />
+            <div class='uploadwrapperthing'>
+              <div>
+                <label class="custom-file-upload">
+                  <input type="file" onChange={this.onFileChange} />
+                  Select File
+                </label>
+              </div> 
+              <div>
                 <button className='uploadButton' onClick={this.onFileUpload}>
                   Upload!
                 </button>
+              </div> 
             </div>
           {this.fileData()}
         </div>
