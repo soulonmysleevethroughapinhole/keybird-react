@@ -1,6 +1,7 @@
 import axios from 'axios';
  
 import React,{Component} from 'react';
+import * as ReactDOM from 'react-dom';
  
 class AudioUpload extends Component {
   
@@ -12,10 +13,10 @@ class AudioUpload extends Component {
     
     // On file select (from the pop up)
     onFileChange = event => {
-    
+        //console.log(fetch('api/uploadfile'));
       // Update the state
       this.setState({ selectedFile: event.target.files[0] });
-    
+      
     };
     
     // On file upload (click the upload button)
@@ -30,13 +31,34 @@ class AudioUpload extends Component {
         this.state.selectedFile,
         this.state.selectedFile.name
       );
-    
+
       // Details of the uploaded file
       console.log(this.state.selectedFile);
     
       // Request made to the backend api
       // Send formData object
-      axios.post("api/uploadfile", formData);
+      axios.post("api/uploadfile", formData)
+      .then(function(response) {
+        console.log(response["data"]);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+      const clackyRoot = ReactDOM.createRoot(
+        document.getElementById('clacky')
+      );
+      const clackyPerc = <p>96%</p>
+      const thockyRoot = ReactDOM.createRoot(
+        document.getElementById('thocky')
+      );
+      const thockyPerc = <p>20%</p>
+      const mutedRoot = ReactDOM.createRoot(
+        document.getElementById('muted')
+      );
+      const mutedPerc = <p>0%</p>
+      clackyRoot.render(clackyPerc);
+      thockyRoot.render(thockyPerc);
+      mutedRoot.render(mutedPerc);
     };
     
     // File content to be displayed after
