@@ -8,8 +8,16 @@ class AudioUpload extends Component {
     state = {
  
       // Initially, no file is selected
-      selectedFile: null
+      selectedFile: null,
+
+      // fts loaded
+      // clacky: null,
+      // clicky: null,
+      // muted: null,
+      // silent: null,
+      // thonky: null,
     };
+
     
     // On file select (from the pop up)
     onFileChange = event => {
@@ -44,10 +52,17 @@ class AudioUpload extends Component {
       .catch(function(error) {
         console.log(error);
       });
+
+      const clickyRoot = ReactDOM.createRoot(
+        document.getElementById('clicky')
+      );
+      const clickyPerc = <p>96%</p>
+
+
       const clackyRoot = ReactDOM.createRoot(
         document.getElementById('clacky')
       );
-      const clackyPerc = <p>96%</p>
+      const clackyPerc = <p>100%</p>
       const thockyRoot = ReactDOM.createRoot(
         document.getElementById('thocky')
       );
@@ -56,9 +71,17 @@ class AudioUpload extends Component {
         document.getElementById('muted')
       );
       const mutedPerc = <p>0%</p>
+
+      const silentRoot = ReactDOM.createRoot(
+        document.getElementById('silent')
+      );
+      const silentPerc = <p>0%</p>
+      
+      clickyRoot.render(clickyPerc)
       clackyRoot.render(clackyPerc);
       thockyRoot.render(thockyPerc);
       mutedRoot.render(mutedPerc);
+      silentRoot.render(silentPerc)
     };
     
     // File content to be displayed after
@@ -88,7 +111,7 @@ class AudioUpload extends Component {
         return (
           <div>
             <br />
-            <h4>Choose file</h4>
+            <h4>Upload Audio</h4>
           </div>
         );
       }
@@ -99,8 +122,8 @@ class AudioUpload extends Component {
       return (
         <div>
             <div>
-                <input type="file" onChange={this.onFileChange} />
-                <button onClick={this.onFileUpload}>
+                <input className='chooseFileButton' type="file" onChange={this.onFileChange} />
+                <button className='uploadButton' onClick={this.onFileUpload}>
                   Upload!
                 </button>
             </div>
